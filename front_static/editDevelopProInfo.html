@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="../plugins/layui/css/layui.css" media="all" />
+    <style>
+        .layui-form-label {
+            width: 200px;
+        }
+
+        .layui-input-block {
+            margin-left: 230px;
+        }
+
+        .layui-form-item {
+            margin-bottom: 35px;
+        }
+
+        .layui-form-select dl {
+            max-height: 200px;
+        }
+
+        .d-flex {
+            display: flex;
+            align-items: center;
+        }
+
+        .pl_20 {
+            padding-left: 20px;
+        }
+    </style>
+    <script src="../Option/common.js"></script>
+</head>
+
+<body>
+<form class="layui-form" enctype="multipart/form-data" id="form">
+    <br>
+    <br>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label">开发项目名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="developmentProjectName" required lay-verify="required" placeholder="请输入内容" autocomplete="off" class="layui-input"
+                   id="DevelopmentProjectName">
+        </div>
+    </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">项目开始时间</label>
+        <div class="layui-inline">
+            <input type="text" name="startTime" lay-verify="required" placeholder="请输入时间" class="layui-input" id="StartTime">
+        </div>
+    </div>
+    <div class="layui-form-item">
+        <label class="layui-form-label">项目截止日期</label>
+        <div class="layui-inline">
+            <input type="text" name="endTime" lay-verify="required" placeholder="请输入时间" class="layui-input" id="EndTime">
+        </div>
+    </div>
+
+    <div class="layui-form-item d-flex">
+        <label class="layui-form-label">设计单位信息</label>
+        <button type="button" class="layui-btn" id="test1" onclick="document.getElementsByClassName('file')[0].click()">
+            <i class="layui-icon">&#xe67c;</i>上传文件
+        </button>
+        <input type="file" class="file" name="DesignOrganization" style="display: none;" onchange="showImg(0)" multiple>
+
+    </div>
+
+    <div class="layui-form-item ">
+        <label class="layui-form-label " >设计单位名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="designName" class="layui-input" lay-verify="required" id="DesignName" autocomplete="off" placeholder="请输入设计单位名称"></div>
+    </div>
+    <div class="layui-form-item ">
+        <label class="layui-form-label ">设计单位地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="designAddress" class="layui-input" lay-verify="required" id="DesignAddress" autocomplete="off" placeholder="请输入设计单位地址"></div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label " >负责人名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="chargePerson1" class="layui-input" lay-verify="required" autocomplete="off" id="ChargePerson1" placeholder="请输入负责人名称"></div>
+    </div>
+    <div class="layui-form-item ">
+        <label class="layui-form-label ">联系方式</label>
+        <div class="layui-input-block">
+            <input type="text" name="personPhone1" class="layui-input" lay-verify="required" autocomplete="off" id="PersonPhone1" placeholder="请输入联系方式"></div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">审核情况</label>
+        <div class="layui-input-block">
+            <textarea name="audit1" placeholder="请输入内容" class="layui-textarea" id="Audit1"></textarea>
+        </div>
+    </div>
+
+    <div class="layui-form-item d-flex">
+        <label class="layui-form-label">施工单位信息</label>
+        <button type="button" class="layui-btn" id="test1" onclick="document.getElementsByClassName('file')[1].click()">
+            <i class="layui-icon">&#xe67c;</i>上传文件
+        </button>
+        <input type="file" class="file" name="Builder" style="display: none;" onchange="showImg(1)" multiple>
+
+    </div>
+
+    <div class="layui-form-item ">
+        <label class="layui-form-label " >施工单位名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="builderName" class="layui-input" lay-verify="required" id="BuilderName" autocomplete="off" placeholder="请输入施工单位名称"></div>
+    </div>
+    <div class="layui-form-item ">
+        <label class="layui-form-label ">施工单位地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="builderAddress" class="layui-input" lay-verify="required" id="BuilderAddress" autocomplete="off" placeholder="请输入施工单位地址"></div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label " >负责人名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="chargePerson" class="layui-input" lay-verify="required" autocomplete="off" id="ChargePerson" placeholder="请输入负责人名称"></div>
+    </div>
+    <div class="layui-form-item ">
+        <label class="layui-form-label ">联系方式</label>
+        <div class="layui-input-block">
+            <input type="text" name="personPhone" class="layui-input" lay-verify="required" autocomplete="off" id="PersonPhone" placeholder="请输入联系方式"></div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">审核情况</label>
+        <div class="layui-input-block">
+            <textarea name="audit" placeholder="请输入内容" class="layui-textarea" id="Audit"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item d-flex">
+        <label class="layui-form-label">监理单位信息</label>
+        <button type="button" class="layui-btn" id="test1" onclick="document.getElementsByClassName('file')[2].click()">
+            <i class="layui-icon">&#xe67c;</i>上传文件
+        </button>
+        <input type="file" class="file" name="ConstructionControlUnit" style="display: none;" onchange="showImg(2)" multiple>
+
+    </div>
+
+    <div class="layui-form-item ">
+        <label class="layui-form-label " >监理单位名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="constructionName" class="layui-input" lay-verify="required" id="ConstructionName" autocomplete="off" placeholder="请输入监理单位名称"></div>
+    </div>
+    <div class="layui-form-item ">
+        <label class="layui-form-label ">监理单位地址</label>
+        <div class="layui-input-block">
+            <input type="text" name="constructionAddress" class="layui-input" lay-verify="required" id="ConstructionAddress" autocomplete="off" placeholder="请输入监理单位地址"></div>
+    </div>
+
+    <div class="layui-form-item">
+        <label class="layui-form-label " >负责人名称</label>
+        <div class="layui-input-block">
+            <input type="text" name="chargePerson2" class="layui-input" lay-verify="required" autocomplete="off" id="ChargePerson2" placeholder="请输入负责人名称"></div>
+    </div>
+    <div class="layui-form-item ">
+        <label class="layui-form-label ">联系方式</label>
+        <div class="layui-input-block">
+            <input type="text" name="personPhone2" class="layui-input" lay-verify="required" autocomplete="off" id="PersonPhone2" placeholder="请输入联系方式"></div>
+    </div>
+    <div class="layui-form-item layui-form-text">
+        <label class="layui-form-label">审核情况</label>
+        <div class="layui-input-block">
+            <textarea name="audit2" placeholder="请输入内容" class="layui-textarea" id="Audit2"></textarea>
+        </div>
+    </div>
+    <div class="layui-form-item d-flex">
+        <label class="layui-form-label">会议纪要（word文件）</label>
+        <button type="button" class="layui-btn" id="test1" onclick="document.getElementsByClassName('file')[3].click()">
+            <i class="layui-icon">&#xe67c;</i>上传文件
+        </button>
+        <input type="file" class="file" name="SessionSummary" style="display: none;" onchange="showImg(3)" multiple>
+
+    </div>
+    <div class="layui-form-item d-flex">
+        <label class="layui-form-label">批复文件</label>
+        <button type="button" class="layui-btn" id="test1" onclick="document.getElementsByClassName('file')[4].click()">
+            <i class="layui-icon">&#xe67c;</i>上传文件1
+        </button>
+        <input type="file" class="file" name="BatchFile1" style="display: none;" onchange="showImg(4)" multiple>
+
+    </div>
+
+    <div class="layui-form-item d-flex">
+        <label class="layui-form-label"></label>
+        <button type="button" class="layui-btn" id="test1" onclick="document.getElementsByClassName('file')[5].click()">
+            <i class="layui-icon">&#xe67c;</i>上传文件2
+        </button>
+        <input type="file" class="file" name="BatchFile2" style="display: none;" onchange="showImg(5)" multiple>
+
+    </div>
+
+    <div class="layui-form-item d-flex">
+        <label class="layui-form-label"></label>
+        <button type="button" class="layui-btn" id="test1" onclick="document.getElementsByClassName('file')[6].click()">
+            <i class="layui-icon">&#xe67c;</i>上传文件3
+        </button>
+        <input type="file" class="file" name="BatchFile3" style="display: none;" onchange="showImg(6)" multiple>
+
+    </div>
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary" style="display: none;" id="reset">重置</button>
+            <input type="button" class="layui-btn layui-btn-primary" value="重置" id="btnReset">
+        </div>
+    </div>
+</form>
+</body>
+<script src="../plugins/layui/layui.js"></script>
+<script src="../js/jquery-1.11.1.js"></script>
+<script>
+</script>
+<script>
+    var data = parent.Data2;
+    console.log(data);
+    let textList = $('#form .layui-input-block input:text');
+    let textAreaList = $('#form .layui-input-block textarea');
+    let imgList = $('#form .layui-form-item input:file');
+    let startTime = $('#StartTime');
+    let endTime = $('#EndTime');
+
+    startTime.val(data["RepairStartTime"]);
+    endTime.val(data["RepairEndTime"]);
+
+    textList.each(function (index, element) {
+        $(element).val(data[element.id]);
+    });
+
+    textAreaList.each(function (index, element) {
+        $(element).val(data[element.id]);
+    });
+
+    let divList = $("#form .layui-form-item:gt(17) div[id]");
+    console.log(divList);
+    divList.each(function (index, element) {
+        let id = element.id;
+        if (data[id]) {
+            let imgUrls = data[id].split('|');
+            let guid = newGuid();
+            $(imgUrls).each((index, element) => {
+
+                if (element.split('.')[1] == 'doc' || element.split('.')[1] == 'docx') {
+                    let wordHtml =
+                        `<div class="d-flex"><img src="word.png" width="50" height="50" style=""><span style="display:block;margin-left:10px;margin-right:10px">${element.split('.')[0].substr(element.lastIndexOf('/') + 1)}</span></div>`;
+                    $('#' + id).append(wordHtml);
+                } else {
+                    let imgHtml =
+                        `<img src="" id="${id}_${index}" style="width:50px;height:50px;margin-right:10px">`;
+                    $('#' + id).append(imgHtml);
+                    $('#' + id + '_' + index)[0].src = apiurl + element;
+                }
+            });
+        }
+    });
+
+    layui.use('laydate', function () {
+        var laydate = layui.laydate;
+
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#StartTime', //指定元素
+            format: 'yyyy年MM月dd日',
+            value: data.StartTime
+        });
+        laydate.render({
+            elem: '#EndTime' //指定元素
+            ,
+            format: 'yyyy年MM月dd日',
+            value: data.EndTime
+        });
+    });
+    layui.use('form', function () {
+        const form = layui.form;
+
+        form.on('submit(formDemo)', function () {
+            /*处理文字部分添加到formData*/
+            var formData = new FormData();
+
+            formData.append('type', $('#type').val());
+            for (let i = 0; i < textList.length; i++) {
+                formData.append(textList[i].name, $(textList[i]).val());
+            }
+
+            formData.append("assetType", $('#AssetType').val());
+
+            for (let i = 0; i < textAreaList.length; i++) {
+                formData.append(textAreaList[i].name, $(textAreaList[i]).val());
+            }
+
+            /*处理图片部分添加到formData*/
+            for (let i = 0; i < imgList.length; i++) {
+                for (let j = 0; j < imgList[i].files.length; j++) {
+                    if (j > 0) {
+                        formData.append(imgList[i].name + '_' + j, imgList[i].files[
+                            j]);
+                    } else {
+                        formData.append(imgList[i].name, imgList[i].files[j]);
+                    }
+                }
+            }
+            $.ajax({
+                url: apiurl + "/api/Assets/EditDevelopmentProject/" + data.Id,
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    console.log(data);
+                    layer.closeAll('iframe');
+                    parent.location.reload();
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    console.log(XMLHttpRequest.status);
+                    console.log(XMLHttpRequest.readyState);
+                    console.log(textStatus);
+                }
+            });
+            //辣鸡LayUI留下的巨坑
+            return false;
+        });
+    });
+
+
+    /*重置按钮点击后清除所有显示的图片以及文本域中的内容*/
+    $('#btnReset').on('click', function () {
+        $('#reset')[0].click();
+        imgList.each((index, element) => {
+            $(element).parent().children('img').remove();
+            $(element).val("");
+        });
+    })
+
+    function showImg(index) {
+        $('.file:eq(' + index + ')').parent().children('img').remove();
+      //  $('.file:eq(' + index + ')').parent().children('div').remove();
+        let files = $('.file')[index].files;
+
+
+        for (let i = 0; i < files.length; i++) {
+            let fr = new FileReader();
+            let file = files[i];
+            let guid = newGuid();
+            let imgHtml = `<img src="" id="${guid}" width="50" height="50" style="display: none;margin-left:20px">`;
+            $($('.file')[index]).parent().append(imgHtml);
+            fr.readAsDataURL(file);
+            fr.onload = function (e) {
+                $('#' + guid)[0].style.display = 'inline-block';
+                $('#' + guid)[0].src = this.result;
+            };
+        }
+    }
+
+    function newGuid() {
+        var guid = "";
+        for (var i = 1; i <= 32; i++) {
+            var n = Math.floor(Math.random() * 16.0).toString(16);
+            guid += n;
+            if ((i == 8) || (i == 12) || (i == 16) || (i == 20))
+                guid += "-";
+        }
+        return guid;
+    }
+</script>
+
+
+</html>
