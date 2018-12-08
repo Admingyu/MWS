@@ -139,3 +139,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+# 设置默认相应渲染数据格式,如xml,json
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        # 默认响应渲染类
+        'rest_framework.renderers.JSONRenderer',
+        # json渲染器
+        'rest_framework.renderers.BrowsableAPIRenderer',
+        # 浏览API渲染器
+    )
+}
