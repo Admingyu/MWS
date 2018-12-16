@@ -149,3 +149,6 @@ REST_FRAMEWORK = {
         # 浏览API渲染器
     )
 }
+
+# 设置请求的URL末尾不带斜杠
+APPEND_SLASH = False
