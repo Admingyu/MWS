@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'user.apps.UserConfig',
     'items.apps.ItemsConfig',
+    'others.apps.OthersConfig',
 
 ]
 
