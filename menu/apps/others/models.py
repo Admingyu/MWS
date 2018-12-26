@@ -7,7 +7,7 @@ from menu.utils.base_model import BaseModel
 class WxHead(BaseModel):
     user = models.CharField(max_length=20, verbose_name='微信昵称')
     phonoe = models.CharField(max_length=20, verbose_name='手机型号')
-    head_image = models.ImageField(verbose_name="头像")
+    head_image = models.ImageField( verbose_name="头像")
 
     class Meta:
         db_table = "db_others"
